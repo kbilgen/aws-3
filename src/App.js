@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Chart, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import Navbar from './components/Navbar'; // Navbar bileşenini içe aktarın
 
 // Chart.js modüllerini kaydet
 Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
@@ -24,7 +25,7 @@ function App() {
       });
       const data = response.data;
 
-      // Fon Adını ayarla......
+      // Fon Adını ayarla...
       setFundName(data[0]["Fon Adı"]);
 
       // Veri setlerini oluştur
@@ -76,6 +77,7 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar /> {/* Navbar bileşenini ekleyin */}
       <input
         type="text"
         value={fonKodu}
